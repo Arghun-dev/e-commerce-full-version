@@ -1,5 +1,3 @@
-# e-commerce-full-version
-
 # React-Router
 
 ### history:
