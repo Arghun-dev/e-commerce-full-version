@@ -24,6 +24,24 @@ well, now it does not matter where our topicList is. It will always now be aware
 #### url
 The url is just the url of our component that it got rendered up to from the route
 
+Example: 
+<Route exact path='/' component={HomePage} />
+
+if we rere to look at our Route for HomePage, we learned that in our last lesson without this exact keyword any of our paths that start with a / and then anything after is also going to render our HomePage, because technically if we were to navigate to /topics we are still matching the / portion of our url. which means that this Route pattern is matching for our HomePage, but if we were to look at our match we actuallt see that url only matches up till the / not the /topics so that url no matter what we type, the url match will always only display the url up until where it actually matched
+
+
+#### path
+the path property is just the pattern that the Route is looking to map
+
+
+#### isExact
+is the one that's matching that is only true if the entire url matches the pattern
+
+
+#### params
+this is an object of url parameters
+what is url parameter ->>> <Route path='/topics/:topicId' component={TopicDetail} />  ->>> The :topicId is the url parameter or a Route parameter, when we write this in our path we're saying that this route is waiting to match anything up to /topics and then /anything in this spot after, it can be dynamically changing value. But that topicId value we want to be able to access as a parameter. 
+
 ### location:
 
 location shows us where er are in the application just look at pathname.
