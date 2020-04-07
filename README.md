@@ -21,7 +21,8 @@ let's say our our topicList page renders out a bunch of links to a bunch of topi
 
 well, now it does not matter where our topicList is. It will always now be aware and know how to take us to that url even if our topicList was at some obscure url. Now our topicsList does not care about anything regarding where our url is from the point where it matched. all it cares about is that I'm trying to render out or take you to different topics from my path onwards. So this how we can build out dynamic routing without our topics list being aware of the entire url
 
-#### 
+#### url
+The url is just the url of our component that it got rendered up to from the route
 
 ### location:
 
