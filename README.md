@@ -6,7 +6,7 @@
 
 We use this to push some url: <button onClick={() => props.history.push('/topics')}>Topics</button>
 
-.match:
+### match:
 
 VERRRRYYYYYY USEFUL: main usage of match beyond being inside of specific topic detail /:topicId another useful thing about it is that this allows our components to build out a nested route structure.
 
@@ -20,6 +20,6 @@ let's say our our topicList page renders out a bunch of links to a bunch of topi
 
 well, now it does not matter where our topicList is. It will always now be aware and know how to take us to that url even if our topicList was at some obscure url. Now our topicsList does not care about anything regarding where our url is from the point where it matched. all it cares about is that I'm trying to render out or take you to different topics from my path onwards. So this how we can build out dynamic routing without our topics list being aware of the entire url
 
-.location:
+### location:
 
 location shows us where er are in the application just look at pathname.
