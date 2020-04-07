@@ -34,3 +34,5 @@ it anables us to access to the history, match and location props in every compon
 
 ### usage
 export default withRouter(MenuItem)
+
+Now in MenuItem component I have access to match, location and history as props
