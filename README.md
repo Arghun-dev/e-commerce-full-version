@@ -2,7 +2,7 @@
 
 # React-Router
 
-## history:
+### history:
 
 We use this to push some url: <button onClick={() => props.history.push('/topics')}>Topics</button>
 
