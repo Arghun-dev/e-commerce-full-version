@@ -53,14 +53,14 @@ It is a higher order function.
 
 it anables us to access to the history, match and location props in every component wwe want.
 
-### usage
+#### usage
 export default withRouter(MenuItem)
 
 Now in MenuItem component I have access to match, location and history as props.
 
-### Higher Order Component
+#### Higher Order Component
 higher order component is essentially a function that takes a component as an argument and returns you a modified component
 
 
-### Example
+#### Example
 Now in this project we have 5 category of MenuItems hats, sneakers, ... and if we click in each of these items it will push us to that specific page.
