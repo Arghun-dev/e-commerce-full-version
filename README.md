@@ -1,5 +1,6 @@
 # React-Router
 
+
 ## React-Router-Dom
 
 ### history:
@@ -23,3 +24,13 @@ well, now it does not matter where our topicList is. It will always now be aware
 ### location:
 
 location shows us where er are in the application just look at pathname.
+
+
+## withRouter
+
+It is a higher order function.
+
+it anables us to access to the history, match and location props in every component wwe want.
+
+### usage
+export default withRouter(MenuItem)
