@@ -64,3 +64,14 @@ higher order component is essentially a function that takes a component as an ar
 
 #### Example
 Now in this project we have 5 category of MenuItems hats, sneakers, ... and if we click in each of these items it will push us to that specific page.
+
+
+# Sign-in & Sign-up
+
+Always keep the state of sign-in and Sign-up pages in their own individual components separately.
+
+So, Sign-in is going to have it's own state and register is going to have it's own state.
+
+### Why is that?
+because these two components don't need to talk to each other -> Sing-in does not really care what we enter in register and register does not care what's in the form of sign-in.
+So, if we lift the state up and keep the state in the entire page every time we update one state, the state will be changed in both of the components would be re-rendered, so that's two extra calculations that react has to do to re-render this.
