@@ -81,3 +81,76 @@ So, Sign-in is going to have it's own state and register is going to have it's o
 ### Why is that?
 because these two components don't need to talk to each other -> Sing-in does not really care what we enter in register and register does not care what's in the form of sign-in.
 So, if we lift the state up and keep the state in the entire page every time we update one state, the state will be changed in both of the components would be re-rendered, so that's two extra calculations that react has to do to re-render this.
+
+In this project we're handling Authentication via firebase,
+
+and We're saving our users in firestore of firebase.
+
+1. first create a project in firebase:
+
+then write these code in src/firebase/firebase.utils.js:
+
+```
+import firebase from 'firebase/app'
+import 'firebase/firestore'
+import 'firebase/auth'
+
+const config = {
+    apiKey: "AIzaSyCXmfxiLodIGwhhxavIOszAZADjztLY3Tk",
+    authDomain: "world-shop-e7d3c.firebaseapp.com",
+    databaseURL: "https://world-shop-e7d3c.firebaseio.com",
+    projectId: "world-shop-e7d3c",
+    storageBucket: "world-shop-e7d3c.appspot.com",
+    messagingSenderId: "695602032095",
+    appId: "1:695602032095:web:ce1d5fa971c5e1753a286a",
+    measurementId: "G-3FHFLH0VW8"
+};
+
+export const createUserProfileDocument = async (userAuth, additionalData) => {
+    if(!userAuth) return
+
+    const userRef = firestore.doc(`users/${userAuth.uid}`);
+
+    const snapShot = await userRef.get()
+
+    if(!snapShot.exists) {
+        const { displayName, email } = userAuth
+        const createdAt = new Date()
+
+        try {
+            await userRef.set({
+                displayName,
+                email,
+                createdAt,
+                ...additionalData
+            })
+        } catch(err) {
+            console.log('error creating user', err.message);
+        }
+    }
+
+    return userRef;
+}
+
+firebase.initializeApp(config)
+
+export const auth = firebase.auth()
+export const firestore = firebase.firestore()
+
+const provider = new firebase.auth.GoogleAuthProvider()
+provider.setCustomParameters({ prompt: 'select_account' })
+export const signInWithGoogle = () => auth.signInWithPopup(provider)
+
+export default firebase
+```
+
+How we're accessing our data in firestore:
+This is a method how we are getting our documents and collections from database:
+firebase database, is based on collections and documents
+
+```
+firestore.collection('users').doc('rrb3mZeYtXyCfhExfU5I').collection('cartItems').doc('')
+```
+
+What we're gonna do, is that we're gonna store these authenticated users that we get back from our auth library inside of our database
+
